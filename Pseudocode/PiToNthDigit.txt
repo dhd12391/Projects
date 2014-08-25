@@ -24,7 +24,7 @@ public static void main(String[]args){
     piToNthDigit = (double) ((int) (PI * pow(10, N-1) )) / pow(10, N-1); 
 
     //e.g. N=3 -> 3.1415 * (10 ^ 2) = 314.15 ; int casting -> 314.15 becomes 314;
-    //double casting -> 314 becomes 314.0; 314.0 / 2 = 3.14
+    //double casting -> 314 becomes 314.0; 314.0 / 10^2 = 3.14
 
     System.out.println( "Pi with " + N + " digits is: " + piToNthDigit);
 }
