@@ -9,6 +9,7 @@ public static void main(String[]args){
     int N = args[0]; //digit limit
     double final PI = Math.pi;
     double piToNthDigit = 0.0;
+/*
     int i = 0; //currentNumOfDigits
 
     if ( N > 0 ){
@@ -18,5 +19,12 @@ public static void main(String[]args){
         piToNthDigit += //concatenating the i'th digit of constant PI
         i++;
     }
+*/
+    //maybe a while loop isn't necessary?
+    piToNthDigit = (double) ((int) (PI * pow(10, N-1) )) / pow(10, N-1); 
+
+    //e.g. N=3 -> 3.1415 * (10 ^ 2) = 314.15 ; int casting -> 314.15 becomes 314;
+    //double casting -> 314 becomes 314.0; 314.0 / 2 = 3.14
+
     System.out.println( "Pi with " + N + " digits is: " + piToNthDigit);
 }
