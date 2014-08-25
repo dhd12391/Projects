@@ -1,0 +1,19 @@
+**Find PI to the Nth Digit** - 
+Enter a number and have the program generate PI up to that many decimal places. Keep a limit to how far the program will go.
+
+e.g.: N = 5 -> PI = 3.1415; N = 3; PI = 3.14
+
+Java pseudocode:
+
+public static void main(String[]args){
+    int N = args[0]; //digit limit
+    double final PI = Math.pi;
+    double piToNthDigit = 0.0;
+    int i = 0; //currentNumOfDigits
+
+    while ( i < N){
+        piToNthDigit = //concatenating the i'th digit of constant PI
+        i++;
+    }
+    System.out.println( "Pi with " + N + " digits is: " + piToNthDigit);
+}
