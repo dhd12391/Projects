@@ -11,8 +11,11 @@ public static void main(String[]args){
     double piToNthDigit = 0.0;
     int i = 0; //currentNumOfDigits
 
+    if ( N > 0 ){
+        piToNthDigit += 3.0 ; += 0.1 ; += 0.04 ; += 0.001 ; += 0.0005 ;
+    }
     while ( i < N){
-        piToNthDigit = //concatenating the i'th digit of constant PI
+        piToNthDigit += //concatenating the i'th digit of constant PI
         i++;
     }
     System.out.println( "Pi with " + N + " digits is: " + piToNthDigit);
