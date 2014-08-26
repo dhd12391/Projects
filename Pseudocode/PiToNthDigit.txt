@@ -30,3 +30,9 @@ public static void main(String[]args){
 
     System.out.println( "Pi with " + N + " digits is: " + piToNthDigit);
 }
+
+/***********ALTERNATIVE************/
+String <-> Integer manipulation
+
+String PI = Math.PI.toString();
+PiToNthDigit = (int) PI.substring(0,N);
