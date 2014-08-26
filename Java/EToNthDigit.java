@@ -1,23 +1,25 @@
 /*****************************************************
-  Project: **Find PI to the Nth Digit**
+  Project: **Find e to the Nth Digit**
   Author: David Hua (Github: dhd12391)
   Date: 8/25/14
-  Description: Enter a number and have the program generate PI up to that many decimal places. 
-			   Keep a limit to how far the program will go.   
+  Description: Just like the previous problem, but with e instead of PI. 
+			   Enter a number and have the program generate e up to that many decimal places. 
+			   Keep a limit to how far the program will go.
+ 
   Program Details: If program is run on command prompt, user can input an integer >= 0 
 				   as the first argument N in order for the program to run.
 				   Else, program will prompt user to do so during execution.
-  Assumption: When N = 0, result is 3.0; When N = 1, result is 3.1; When N = 2, result is 3.14; etc.				   
+  Assumption: When N = 0, result is 2.0; When N = 1, result is 2.7; When N = 2, result is 2.71; etc.				   
 ******************************************************/
 import java.math.*;;
 import java.util.Scanner;
 import java.io.IOException;
 import java.util.InputMismatchException;
 
-public class PiToNthDigit{
+public class EToNthDigit{
 	public static void main(String[]args) throws IOException{
-		final double PI = Math.PI;
-		double piToNthDigit = 0.0;	
+		final double E = Math.E;
+		double eToNthDigit = 0.0;	
 		Scanner input = new Scanner(System.in);
 		int N;
 		
@@ -32,7 +34,7 @@ public class PiToNthDigit{
 			System.out.print("Please provide an Integer as an argument for the program: ");
 			try{
 				N = input.nextInt();
-				
+		
 			}catch(InputMismatchException ex){
 				System.out.println("InputMismatchException: The argument given is not an Integer.");
 				return;
@@ -45,11 +47,11 @@ public class PiToNthDigit{
 		}
 
 		else{
-			piToNthDigit = ( Math.floor(PI * Math.pow(10, N)) ) / Math.pow(10, N);
-			System.out.println( "Pi with " + N + " decimal places is: " + piToNthDigit);
+			eToNthDigit = ( Math.floor(E * Math.pow(10, N)) ) / Math.pow(10, N);
+			System.out.println( "e with " + N + " decimal places is: " + eToNthDigit);
 		}
-		//e.g. For N=3: 3.1415... * (10 ^ 3) = 3141.5... ;
-		//Math.floor() -> 3141.5 becomes 3141.0; 3141.0 / 10^3 = 3.141		
+		//e.g. For N=3: 2.7182... * (10 ^ 3) = 2718.2... ;
+		//Math.floor() -> 2718.2 becomes 2718.0; 2718.0 / 10^3 = 2.718		
 
 	}	
 }
