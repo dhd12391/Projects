@@ -5,34 +5,55 @@ Manage credits and debits from these accounts through an ATM style program.
 
 Pseudocode: 
 
+abstract class Card: //will have a list of accounts associated with card
+  string id (get/set);
+  string pin (get/set); 
+  
+  func changePIN():
+
+class DebitCard extends Card:
+  ArrayList<Account> myAccounts (get/set);  
+  func addAccount():
+  
+class CreditCard extends Card:
+  //implement cash advance, cash withdrawal limit? (Personally never owned one, so I will research regarding this)
+
 abstract class Account:
   double currentAmount (get/set)
 
   func withdraw(double toBeWithdrawn):
     if (toBeWithdrawn > currentAmount):
 	  print ("You are over-withdrawing! You only have $%.2f in your account!" , currentAmount);
+	  return false;
 	else if (toBeWithdrawn <= 0):
-	  print "You cannot withdraw no money or negative money, silly!"	  
+	  print "You cannot withdraw no money or negative money, silly!"
+	  return false;
 	else:
 	  currentAmount -= toBeWithdrawn;
 	  print ("You successfully withdrawn $%.2f from the account. Account now has $.2f", toBeWithdrawn, currentAmount);
+	  return true;
 	  
   func deposit(double toBeDeposited):
     if (toBeDeposited <= 0):
 	  print "You cannot deposit no money or negative money, silly!"
+	  return false;
 	else:
 	  currentAmount += toBeDeposited;
 	  print ("You successfully deposited $%.2f from the account. Account now has $.2f", toBeDeposited, currentAmount);
+	  return true;
 	  	  
   func display():
     print ("This account currently has $%.2f",currentAmount);
   
   func transferTo(anotherAccount):
     double toBeTransferred = prompt "How much from this account do you want to withdraw?"
-	this.withdraw(toBeTransferred);
-	anotherAccount.deposit(toBeTransferred);
-	print "Transfer of $%.2f from thisAccount to anotherAccount was successful!", toBeTransferred);
-
+	if(this.withdraw(toBeTransferred)): //if withdrawal for transfer is successful
+	  anotherAccount.deposit(toBeTransferred);
+	  print "Transfer of $%.2f from thisAccount to anotherAccount was successful!", toBeTransferred);
+	  return true;
+	else:
+	  return false
+	  
 class CheckingAccount extends Account; //for "everyday" usage
 
 
