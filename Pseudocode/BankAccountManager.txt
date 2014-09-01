@@ -1,20 +1,43 @@
 **Bank Account Manager** - Create a class called Account which will be an abstract class for three other classes called CheckingAccount, SavingsAccount and BusinessAccount. 
 Manage credits and debits from these accounts through an ATM style program.
 
+//NOTE: Basic Bank Account Manager, no adding extra features like monthly rate increments.
+
 Pseudocode: 
 
-class Account:
-  double cash (get/set)
+abstract class Account:
+  double currentAmount (get/set)
 
-  func withdraw()
-  func deposit()
-  func display
+  func withdraw(double toBeWithdrawn):
+    if (toBeWithdrawn > currentAmount):
+	  print ("You are over-withdrawing! You only have $%.2f in your account!" , currentAmount);
+	else if (toBeWithdrawn <= 0):
+	  print "You cannot withdraw no money or negative money, silly!"	  
+	else:
+	  currentAmount -= toBeWithdrawn;
+	  print ("You successfully withdrawn $%.2f from the account. Account now has $.2f", toBeWithdrawn, currentAmount);
+	  
+  func deposit(double toBeDeposited):
+    if (toBeDeposited <= 0):
+	  print "You cannot deposit no money or negative money, silly!"
+	else:
+	  currentAmount += toBeDeposited;
+	  print ("You successfully deposited $%.2f from the account. Account now has $.2f", toBeDeposited, currentAmount);
+	  	  
+  func display():
+    print ("This account currently has $%.2f",currentAmount);
+  
+  func transferTo(anotherAccount):
+    double toBeTransferred = prompt "How much from this account do you want to withdraw?"
+	this.withdraw(toBeTransferred);
+	anotherAccount.deposit(toBeTransferred);
+	print "Transfer of $%.2f from thisAccount to anotherAccount was successful!", toBeTransferred);
 
 class CheckingAccount extends Account; //for "everyday" usage
-  //Monthly transfer to savings?
+
 
 class SavingsAccount extends Account; //for saving up money
-  //Monthly increment % rate?
+
 
 class BusinessAccount extends Account; //for the new startup!
  
