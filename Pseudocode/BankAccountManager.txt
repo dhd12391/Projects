@@ -1,0 +1,20 @@
+**Bank Account Manager** - Create a class called Account which will be an abstract class for three other classes called CheckingAccount, SavingsAccount and BusinessAccount. 
+Manage credits and debits from these accounts through an ATM style program.
+
+Pseudocode: 
+
+class Account:
+  double cash (get/set)
+
+  func withdraw()
+  func deposit()
+  func display
+
+class CheckingAccount extends Account; //for "everyday" usage
+  //Monthly transfer to savings?
+
+class SavingsAccount extends Account; //for saving up money
+  //Monthly increment % rate?
+
+class BusinessAccount extends Account; //for the new startup!
+ 
