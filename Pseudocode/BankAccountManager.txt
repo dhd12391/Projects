@@ -61,4 +61,29 @@ class SavingsAccount extends Account; //for saving up money
 
 
 class BusinessAccount extends Account; //for the new startup!
- 
+
+class main: //ATM
+
+/*****
+  ATM: 3 Stages
+    - User inserts card, enters PIN; If successful access, go to next stage
+	- User decides what action to take, from what account, continues looping until user exits
+	- User is returned the card
+******/
+
+  /************ First stage ******************/
+
+  inputCardID = prompt "Welcome to The Elite Bank! Please input your card id: "
+  if (inputCardID does NOT exist in list of valid card ID's) //card validation
+    reject card
+
+  inputCardPIN = prompt "Please input the PIN of this card: "
+  if (inputCardPIN != cardID.getPin()) //pin validation
+    while(numberOfTries < 3 || inputCardPin != cardID.getPin()) //pin validation continues
+      numberOfTries++;
+	  inputCardPIN = prompt "Incorrect PIN. Please try again (%d tries left): ", 3 - numberOfTries;
+    if (inputCardPin != cardID.getPin()):
+	  reject card, lock card & associated accounts
+	//else, continue with simulation, as pin is valid
+  
+  /************ Second stage ******************/
