@@ -17,7 +17,7 @@ class DebitCard extends Card:
   
 class CreditCard extends Card:
   //implement cash advance, cash withdrawal limit? (Personally never owned one, so I will research regarding this)
-
+  //https://en.wikipedia.org/wiki/Cash_advance 
 abstract class Account:
   double currentAmount (get/set)
 
@@ -87,3 +87,33 @@ class main: //ATM
 	//else, continue with simulation, as pin is valid
   
   /************ Second stage ******************/
+  loop until user wants card returned:
+	  What would you like to do?
+	  
+	  [ACCOUNT RELATED OPTIONS]
+	  -Deposit
+	  -WIthdraw
+	  -Display
+	  -Transfer
+	 
+	  [OTHERS}
+	  -Change PIN
+	  -Return Card
+	  -default: continue
+	 
+	  
+  Depending on option:
+    [ACCOUNT]
+    From which account?
+	  -Checking
+	  -Savings
+	  -Business
+
+  -Deposit: How much? -> Deposit successful!
+  -Withdraw: How much? -> Withdraw succesful
+  -Transfer: To Which account? -> How much? -> Transfer successful
+  -Display: *print receipt*
+ 
+    [OTHER]:
+	  -Change PIN: Please input new PIN -> Reinput -> Changing PIN Success
+	  -Return Card -> Exit program
